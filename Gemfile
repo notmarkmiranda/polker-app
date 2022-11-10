@@ -16,7 +16,7 @@ gem "sassc-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem "factory_bot_rails"
@@ -32,4 +32,3 @@ end
 group :test do
   gem "shoulda-matchers", "~> 5.0"
 end
-
