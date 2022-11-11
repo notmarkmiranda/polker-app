@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: polker_app_production
   username: polker_app
   password: <%= ENV["POLKER_APP_DATABASE_PASSWORD"] %>
