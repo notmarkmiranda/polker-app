@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :redirect_user, only: [:new, :create]
+
+  # this is the dashboard path
   def show
   end
 

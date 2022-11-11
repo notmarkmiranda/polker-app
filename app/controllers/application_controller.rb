@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
-
   helper_method :current_user
+
+  def redirect_user
+    redirect_to dashboard_path if current_user
+  end
 
   private
 
