@@ -5,8 +5,9 @@ ruby "3.1.0"
 
 gem "rails", "~> 7.0.4"
 
-gem "bootsnap", require: false
 gem "bcrypt", "~> 3.1.7"
+gem "bootsnap", require: false
+gem "bulma-rails", "~> 0.9.4"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.1"
