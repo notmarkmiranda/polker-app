@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     redirect_to dashboard_path if current_user
   end
 
+  def require_user
+    redirect_to sign_up_path unless current_user
+  end
+
   private
 
   def current_user
