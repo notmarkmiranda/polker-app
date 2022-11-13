@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "pages#index"
 
+  resources :leagues, only: [:show, :new, :create]
+
   get "sign-up", to: "users#new", as: "sign_up"
   post "users", to: "users#create", as: "users"
   get "sign-in", to: "sessions#new", as: "sign_in"
