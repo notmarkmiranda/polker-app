@@ -1,0 +1,12 @@
+<%= form_with model: @league do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :is_public  do%>
+    <%= f.check_box :is_public %>
+    Public League
+  <% end %>
+
+  <%= f.submit "Create League" %>
+<% end %>
