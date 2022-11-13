@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    redirect_to sign_up_path unless current_user
+    redirect_to sign_in_path unless current_user
   end
 
   private
