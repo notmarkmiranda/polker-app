@@ -1,6 +1,6 @@
-<div class="columns is-centered">
-  <div class="column is-one-quarter">
-    <h1 class="is-size-2">Sign Up for Polker!</h1>
+<div class="row">
+  <div class="four columns offset-by-four">
+    <h3>Sign Up for Polker!</h3>
     <%= form_with model: @user do |f| %>
       <%= render partial: "shared/user_form", locals: { f: f }%>
     <% end %>

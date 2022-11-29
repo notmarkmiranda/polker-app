@@ -1,2 +1,16 @@
-<h1>Dashboard</h1>
-<p>Welcome, <%= current_user.email %>!</p>
+<div class="row">
+  <div class="six columns">
+    <h3 class="is-size-1">Dashboard</h3>
+    <p>Welcome, <%= current_user.email %>!</p>
+  </div>
+  <div class="six columns">
+    <h2 class="is-size-2">Leagues</h2>
+    <% if @leagues.empty? %>
+      <p>You don't have any leagues, create one and it will show up here!</p>
+    <% else %>
+    <ul>
+      <%= render partial: "league", collection: @leagues %>
+    </ul>
+    <% end%>
+  </div>
+</div>

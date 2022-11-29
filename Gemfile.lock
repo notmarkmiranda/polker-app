@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/helios-technologies/skeleton-rails
+  revision: 6e46649d29006643b33c95b82bc9d0e28df2f8cc
+  specs:
+    skeleton-rails (1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,8 +80,6 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    bulma-rails (0.9.4)
-      sassc (~> 2.0)
     capybara (3.38.0)
       addressable
       matrix
@@ -271,7 +275,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
-  bulma-rails (~> 0.9.4)
   capybara
   factory_bot_rails
   faker
@@ -285,6 +288,7 @@ DEPENDENCIES
   rspec-rails
   sassc-rails
   shoulda-matchers (~> 5.0)
+  skeleton-rails!
   sprockets-rails
   standard
   stimulus-rails

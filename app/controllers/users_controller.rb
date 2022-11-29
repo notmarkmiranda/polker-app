@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   # this is the dashboard path
   def show
+    @leagues = current_user.leagues
   end
 
   def new

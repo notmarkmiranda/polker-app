@@ -1,8 +1,8 @@
-<div class="columns is-centered">
-  <div class="column is-one-quarter">
-    <h1 class="is-size-2">Sign In!</h1>
-    <%= form_with url: sign_in_path do |f| %>
-      <%= render partial: "shared/user_form", locals: { f: f }%>
-    <% end %>
+<div class="row">
+  <div class="four columns offset-by-four">
+      <h2 class="card-title">Sign In!</h2>
+      <%= form_with url: sign_in_path do |f| %>
+        <%= render partial: "shared/user_form", locals: { f: f }%>
+      <% end %>
   </div>
 </div>
