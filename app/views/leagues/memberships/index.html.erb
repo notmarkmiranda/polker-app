@@ -1,0 +1,13 @@
+<h3>Memberships for <%= @league.name %></h3>
+
+<h5>League Owner: <%= @league.user_full_name%></h5>
+
+<ul>
+  <% if @memberships.empty? %>
+    There are no members just yet. Do you want to <%= link_to "invite some", "#" %>?
+  <% else %>
+    <% @memberships.each do |membership| %>
+      <li><%= membership.user_full_name %></li>
+    <% end %>
+  <% end %>
+</ul>

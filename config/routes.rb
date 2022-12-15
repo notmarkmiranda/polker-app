@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "pages#index"
 
-  resources :leagues, only: [:show, :new, :create]
+  resources :leagues, only: [:show, :new, :create] do
+    scope module: :leagues do
+      resources :memberships, only: [:index]
+    end
+  end
 
   get "sign-up", to: "users#new", as: "sign_up"
   post "users", to: "users#create", as: "users"
