@@ -1,12 +1,17 @@
-<%= form_with model: @league do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :is_public  do%>
-    <%= f.check_box :is_public %>
-    Public League
-  <% end %>
+<div class="row">
+  <div class="six columns offset-by-three">
+    <h3>Create a New League</h3>
+    <%= form_with model: @league do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "u-full-width", placeholder: Faker::Superhero.name, autofocus: true %>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "u-full-width", placeholder: "#{Faker::Address.city}, #{Faker::Address.state}" %>
+      <%= f.label :is_public  do%>
+        <%= f.check_box :is_public %>
+        Public League
+      <% end %>
 
-  <%= f.submit "Create League" %>
-<% end %>
+      <%= f.submit "Create League" %>
+    <% end %>
+  </div>
+</div>

@@ -7,6 +7,7 @@ gem "rails", "~> 7.0.4"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
+gem "faker"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.1"
@@ -22,7 +23,6 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem "capybara"
   gem "factory_bot_rails"
-  gem "faker"
   gem "pry"
   gem "standard"
   gem "rspec-rails"

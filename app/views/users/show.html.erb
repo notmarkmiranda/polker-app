@@ -1,4 +1,9 @@
 <div class="row">
+  <div class="twelve columns dashboard__control-buttons">
+    <%= link_to "Create new league", new_league_path, class: "button button-primary" %>
+  </div>
+</div>
+<div class="row">
   <div class="six columns">
     <h3 class="is-size-1">Dashboard</h3>
     <p>Welcome, <%= current_user.email %>!</p>

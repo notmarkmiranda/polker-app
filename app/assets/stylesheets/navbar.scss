@@ -1,3 +1,12 @@
 nav {
-  margin-top: 10px;
+  margin-top: 25px;
+}
+
+.navbar__user-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-button {
+  margin-right: 10px;
 }
