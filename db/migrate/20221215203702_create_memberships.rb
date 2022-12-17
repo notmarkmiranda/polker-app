@@ -4,7 +4,7 @@ class CreateMemberships < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true, type: :uuid
       t.references :league, null: false, foreign_key: true, type: :uuid
       t.integer :role, default: 0
-      t.boolean :active, default: true
+      t.integer :status, default: 0
 
       t.timestamps
     end
