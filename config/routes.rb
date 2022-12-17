@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :leagues, only: [:show, :new, :create] do
     scope module: :leagues do
-      resources :memberships, only: [:index]
+      resources :memberships, only: [:index, :new, :create]
     end
   end
 

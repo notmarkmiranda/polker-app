@@ -1,0 +1,5 @@
+<%= form_with model: @membership, url: league_memberships_path(@league, @membership) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email%>
+  <%= f.submit "Invite" %>
+<% end%>

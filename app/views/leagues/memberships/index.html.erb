@@ -6,8 +6,11 @@
   <% if @memberships.empty? %>
     There are no members just yet. Do you want to <%= link_to "invite some", "#" %>?
   <% else %>
-    <% @memberships.each do |membership| %>
-      <li><%= membership.user_full_name %></li>
+    <% Membership.statuses.keys.each do |status| %>
+      <% if @memberships[status]&.any? %>
+        <h4><%= status.capitalize %> Memberships</h4>
+        <%= render partial: "membership_set", locals: { memberships: @memberships[status] } %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
