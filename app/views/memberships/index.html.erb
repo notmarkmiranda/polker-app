@@ -1,0 +1,14 @@
+<h2>Your League Memberships</h2>
+
+<ul>
+  <% if @memberships.empty? %>
+    <p>You're not part of any leagues at the moment, find some <%= link_to "public leagues", "#" %> to join!</p>
+  <% else %>
+    <% Membership.statuses.keys.each do |status| %>
+      <% if @memberships[status]&.any? %>
+        <h4><%= status.capitalize %> Memberships</h4>
+        <%= render partial: "membership_set", locals: { memberships: @memberships[status], status: status } %>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>

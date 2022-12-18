@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :memberships, only: [:index]
+  put "membership/:id/approve", to: "memberships#approve", as: "membership_approve"
+  delete "membership/:id/archive", to: "memberships#archive", as: "membership_archive"
+  delete "membership/:id/reject", to: "memberships#reject", as: "membership_reject"
+
   get "sign-up", to: "users#new", as: "sign_up"
   post "users", to: "users#create", as: "users"
   get "sign-in", to: "sessions#new", as: "sign_in"
