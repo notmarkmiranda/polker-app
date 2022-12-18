@@ -1,0 +1,16 @@
+li.memberships-index__user-button-list {
+  display: flex;
+  align-items: baseline;
+}
+
+button.delete-button {
+  color: red;
+  border: 0px;
+  padding: 0px 10px;
+}
+
+button.activate-button {
+  color: green;
+  border: 0px;
+  padding: 0px 10px;
+}

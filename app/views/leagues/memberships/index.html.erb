@@ -9,7 +9,7 @@
     <% Membership.statuses.keys.each do |status| %>
       <% if @memberships[status]&.any? %>
         <h4><%= status.capitalize %> Memberships</h4>
-        <%= render partial: "membership_set", locals: { memberships: @memberships[status] } %>
+        <%= render partial: "membership_set", locals: { memberships: @memberships[status], status: status } %>
       <% end %>
     <% end %>
   <% end %>
