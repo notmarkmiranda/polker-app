@@ -1,3 +1,14 @@
 <% memberships.each do |membership| %>
-  <li><%= membership.user_full_name %></li>
+  <li class="memberships-index__user-button-list">
+    <%= membership.user_full_name %>
+    <% if status == "archived" %>
+      <%= button_to league_membership_activate_path(@league, membership), class: "activate-button" do %>
+        <span class="fa-solid fa-check"></span>
+      <% end %>
+    <% else %>
+      <%= button_to league_membership_path(@league, membership), class: "delete-button", method: :delete do %>
+        <span class="fa-solid fa-xmark"></span>
+      <% end %>
+    <% end %>
+  </li>
 <% end %>

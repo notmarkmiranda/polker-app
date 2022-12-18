@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :leagues, only: [:show, :new, :create] do
     scope module: :leagues do
-      resources :memberships, only: [:index, :new, :create]
+      resources :memberships, only: [:index, :new, :create, :destroy]
+      post "memberships/:id/activate", to: "memberships#activate", as: "membership_activate"
     end
   end
 

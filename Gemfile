@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.4"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "faker"
+gem "font-awesome-sass", "~> 6.2.1"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.1"

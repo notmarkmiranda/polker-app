@@ -23,6 +23,18 @@ class Leagues::MembershipsController < ApplicationController
     end
   end
 
+  def destroy
+    membership = Membership.find(params[:id])
+    membership.archived!
+    redirect_to league_memberships_path(@league)
+  end
+
+  def activate
+    membership = Membership.find(params[:id])
+    membership.active!
+    redirect_to league_memberships_path(@league)
+  end
+
   private
 
   def membership_params
