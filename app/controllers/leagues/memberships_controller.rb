@@ -31,7 +31,7 @@ class Leagues::MembershipsController < ApplicationController
 
   def activate
     membership = Membership.find(params[:id])
-    membership.active!
+    membership.active! if membership.can_be_active?
     redirect_to league_memberships_path(@league)
   end
 

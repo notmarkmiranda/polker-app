@@ -10,4 +10,20 @@ class Membership < ApplicationRecord
   def league_name
     league.name
   end
+
+  def can_be_pending?
+    rejected? || archived?
+  end
+
+  def can_be_active?
+    pending?
+  end
+
+  def can_be_rejected?
+    pending?
+  end
+
+  def can_be_archived?
+    active?
+  end
 end

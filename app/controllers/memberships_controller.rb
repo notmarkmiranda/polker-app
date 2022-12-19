@@ -7,22 +7,19 @@ class MembershipsController < ApplicationController
 
   def approve
     membership = current_user.memberships.find(params[:id])
-    # membership.can_approve?
-    membership.active!
+    membership.active! if membership.can_be_active?
     redirect_to memberships_path
   end
 
   def archive
     membership = current_user.memberships.find(params[:id])
-    # membership.can_archive?
-    membership.archived!
+    membership.archived! if membership.can_be_archived?
     redirect_to memberships_path
   end
 
   def reject
     membership = current_user.memberships.find(params[:id])
-    # membership.can_archive?
-    membership.rejected!
+    membership.rejected! if membership.can_be_rejected?
     redirect_to memberships_path
   end
 end
