@@ -1,5 +1,11 @@
-<%= form_with model: @membership, url: league_memberships_path(@league, @membership) do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email%>
-  <%= f.submit "Invite" %>
-<% end%>
+<div class="row">
+  <div class="four columns offset-by-four">
+    <%= link_to "Back to League", league_path(@league) %>
+    <h2>Invite Member</h2>
+    <%= form_with model: @membership, url: league_memberships_path(@league, @membership) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "u-full-width" %>
+      <%= f.submit "Invite", class: "button-primary" %>
+    <% end%>
+  </div>
+</div>

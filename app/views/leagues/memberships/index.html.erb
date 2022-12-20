@@ -1,16 +1,23 @@
-<h3>Memberships for <%= @league.name %></h3>
+<div class="row">
+  <div class="twelve columns league-show__control-buttons">
+    <%= link_to "Invite New Member", new_league_membership_path(@league), class: "button" %>
+  </div>
+  <div class="twelve columns">
+    <h3>Memberships for <%= @league.name %></h3>
 
-<h5>League Owner: <%= @league.user_full_name%></h5>
+    <h5>League Owner: <%= @league.user_full_name%></h5>
 
-<ul>
-  <% if @memberships.empty? %>
-    There are no members just yet. Do you want to <%= link_to "invite some", "#" %>?
-  <% else %>
-    <% Membership.statuses.keys.each do |status| %>
-      <% if @memberships[status]&.any? %>
-        <h4><%= status.capitalize %> Memberships</h4>
-        <%= render partial: "membership_set", locals: { memberships: @memberships[status], status: status } %>
+    <ul>
+      <% if @memberships.empty? %>
+        There are no members just yet. Do you want to <%= link_to "invite some", "#" %>?
+      <% else %>
+        <% Membership.statuses.keys.each do |status| %>
+          <% if @memberships[status]&.any? %>
+            <h4><%= status.capitalize %> Memberships</h4>
+            <%= render partial: "membership_set", locals: { memberships: @memberships[status], status: status } %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-</ul>
+    </ul>
+  </div>
+</div>
