@@ -1,2 +1,9 @@
-<h2><%= @league.name %></h2>
-<%= link_to "View Members", league_memberships_path(@league) =%>
+<div class="row">
+  <div class="twelve columns league-show__control-buttons">
+    <%= link_to "Invite New Member", new_league_membership_path(@league), class: "button" %>
+  </div>
+  <div class="twelve columns">
+    <h2><%= @league.name %></h2>
+    <%= link_to "View Members", league_memberships_path(@league) =%>
+  </div>
+</div>

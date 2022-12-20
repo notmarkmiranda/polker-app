@@ -1,6 +1,6 @@
 <% memberships.each do |membership| %>
   <li class="memberships-index__user-button-list">
-    <%= membership.league_name %>
+    <%= link_to membership.league_name, league_path(membership.league) %>
     <% if status == "pending" %>
       <%= button_to membership_approve_path(membership), class: "activate-button", method: :put do %>
         Approve

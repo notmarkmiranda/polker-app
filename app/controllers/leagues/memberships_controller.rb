@@ -35,6 +35,18 @@ class Leagues::MembershipsController < ApplicationController
     redirect_to league_memberships_path(@league)
   end
 
+  def pending
+    membership = @league.memberships.find(params[:id])
+    membership.pending! if membership.can_be_pending?
+    redirect_to league_memberships_path(@league)
+  end
+
+  def reject
+    membership = @league.memberships.find(params[:id])
+    membership.rejected! if membership.can_be_rejected?
+    redirect_to league_memberships_path(@league)
+  end
+
   private
 
   def membership_params
