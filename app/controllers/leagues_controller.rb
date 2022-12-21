@@ -4,7 +4,7 @@ class LeaguesController < ApplicationController
   before_action :require_user
 
   def show
-    @league = League.find(params[:id])
+    @league = League.includes(:seasons).find(params[:id])
   end
 
   def new

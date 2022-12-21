@@ -6,4 +6,8 @@ class League < ApplicationRecord
   validates :name, presence: true, uniqueness: {case_sensitive: false}
 
   delegate :full_name, to: :user, prefix: true
+
+  def seasons_count
+    seasons.count
+  end
 end

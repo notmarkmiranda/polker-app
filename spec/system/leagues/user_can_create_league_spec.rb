@@ -16,5 +16,6 @@ RSpec.describe "User can create league", type: :system do
     click_button "Create League"
 
     expect(page).to have_content(name)
+    expect(page).to have_content("Seasons: 1")
   end
 end
