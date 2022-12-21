@@ -4,6 +4,7 @@
   </div>
   <div class="twelve columns">
     <h2><%= @league.name %></h2>
+    <p>Seasons: <%= @league.seasons_count %></p>
     <%= link_to "View Members", league_memberships_path(@league) =%>
   </div>
 </div>

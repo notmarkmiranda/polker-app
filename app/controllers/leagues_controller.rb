@@ -4,7 +4,7 @@ class LeaguesController < ApplicationController
   before_action :require_user
 
   def show
-    @league = League.find(params[:id])
+    @league = League.includes(:seasons).find(params[:id])
   end
 
   def new
@@ -14,6 +14,7 @@ class LeaguesController < ApplicationController
   def create
     @league = current_user.leagues.new(league_params)
     if @league.save
+      @league.seasons.create!
       # flash
       redirect_to @league
     else

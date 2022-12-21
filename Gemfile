@@ -15,7 +15,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "redis", "~> 4.0"
 gem "sassc-rails"
-gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+gem "skeleton-rails", git: "https://github.com/helios-technologies/skeleton-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
