@@ -14,6 +14,7 @@ class LeaguesController < ApplicationController
   def create
     @league = current_user.leagues.new(league_params)
     if @league.save
+      @league.seasons.create!
       # flash
       redirect_to @league
     else

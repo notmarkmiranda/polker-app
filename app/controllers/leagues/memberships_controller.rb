@@ -14,7 +14,7 @@ class Leagues::MembershipsController < ApplicationController
   def create
     email = params[:membership][:email]
     user = User.find_by_email(email)
-    user = user || User.create(email: email, password: SecureRandom.hex(13))
+    user ||= User.create(email: email, password: SecureRandom.hex(13))
     @membership = @league.memberships.new(membership_params.merge(user_id: user.id))
     if @membership.save
       redirect_to league_memberships_path(@league)
