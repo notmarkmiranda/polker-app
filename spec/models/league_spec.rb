@@ -10,5 +10,6 @@ RSpec.describe League, type: :model do
     it { should have_many :memberships }
     it { should validate_presence_of :name }
     it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
+    it { should have_many :seasons }
   end
 end
