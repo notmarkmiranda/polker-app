@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       post "memberships/:id/activate", to: "memberships#activate", as: "membership_activate"
       put "memberships/:id/pending", to: "memberships#pending", as: "membership_pending"
       put "memberships/:id/reject", to: "memberships#reject", as: "membership_reject"
+
+      resources :seasons, only: [:create]
     end
   end
 
