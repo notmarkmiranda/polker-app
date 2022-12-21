@@ -1,6 +1,7 @@
 <div class="row">
   <div class="twelve columns league-show__control-buttons">
-    <%= link_to "Invite New Member", new_league_membership_path(@league), class: "button" %>
+    <%= link_to "Invite New Member", new_league_membership_path(@league), class: "button nav-button" %>
+    <%= button_to "New Season", league_seasons_path(@league), class: "button button-primary nav-button" %>
   </div>
   <div class="twelve columns">
     <h2><%= @league.name %></h2>
