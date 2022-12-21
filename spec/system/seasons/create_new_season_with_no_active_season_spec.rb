@@ -11,7 +11,6 @@ RSpec.describe "Create new season with no active season" do
   end
 
   it "Creates new season and redirects to season#show" do
-
     visit league_path(league)
 
     click_button "New Season"
