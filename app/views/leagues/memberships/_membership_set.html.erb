@@ -1,13 +1,19 @@
 <% memberships.each do |membership| %>
   <li class="memberships-index__user-button-list">
     <%= membership.user_full_name %>
-    <% if status == "archived" || status == "rejected" %>
-      <%= button_to league_membership_pending_path(@league, membership), class: "activate-button", method: :put do %>
-        MOVE TO PENDING
-      <% end %>
-    <% elsif status == "pending" %>
-      <%= button_to league_membership_reject_path(@league, membership), class: "delete-button", method: :put do %>
-        REJECT
+    <% if policy(membership).admin? %>
+      <% if membership.archived? || membership.rejected? %>
+        <%= button_to league_membership_pending_path(@league, membership), class: "activate-button", method: :put do %>
+          MOVE TO PENDING
+        <% end %>
+      <% elsif membership.pending? %>
+        <%= button_to league_membership_reject_path(@league, membership), class: "delete-button", method: :put do %>
+          REJECT
+        <% end %>
+      <% elsif membership.active? %>
+        <%= button_to league_membership_reject_path(@league, membership), class: "delete-button", method: :put do %>
+          ARCHIVE
+        <% end %>
       <% end %>
     <% end %>
   </li>

@@ -6,6 +6,7 @@ class Membership < ApplicationRecord
   enum status: {pending: 0, active: 1, rejected: 2, archived: 3}
 
   delegate :full_name, to: :user, prefix: true
+  scope :admin, -> { where(role: :admin) }
 
   def league_name
     league.name
