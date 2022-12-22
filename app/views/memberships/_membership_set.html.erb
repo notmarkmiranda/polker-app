@@ -1,14 +1,14 @@
 <% memberships.each do |membership| %>
   <li class="memberships-index__user-button-list">
     <%= link_to membership.league_name, league_path(membership.league) %>
-    <% if status == "pending" %>
+    <% if membership.pending? %>
       <%= button_to membership_approve_path(membership), class: "activate-button", method: :put do %>
         Approve
       <% end %>
       <%= button_to membership_reject_path(membership), class: "delete-button", method: :delete do %>
         Reject
       <% end %>
-    <% elsif status == "active" %>
+    <% elsif membership.active? %>
       <%= button_to membership_archive_path(membership), class: "delete-button", method: :delete do %>
         Archive
       <% end %>
