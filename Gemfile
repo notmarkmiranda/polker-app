@@ -7,6 +7,7 @@ gem "rails", "~> 7.0.4"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
+gem "draper"
 gem "faker"
 gem "font-awesome-sass", "~> 6.2.1"
 gem "importmap-rails"
