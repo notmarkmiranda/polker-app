@@ -10,4 +10,8 @@ class League < ApplicationRecord
   def seasons_count
     seasons.count
   end
+
+  def admin_memberships
+    memberships.admin
+  end
 end
