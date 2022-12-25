@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="six columns offset-by-three">
+    <h3>Are you sure?</h3>
+    <p>There is another season that is currently active.</p>
+    <p>Creating this new season will make that season inactive. Are you sure you want to do this?</p>
+    <div class="confirmation__buttons-row">
+      <%= link_to "No, Thanks", league_path(@league), class: "button" %>
+      <%= button_to "Yes, I'm Sure", league_seasons_confirm_path(@league), class: "button-primary" %>
+    </div>
+  </div>
+</div>

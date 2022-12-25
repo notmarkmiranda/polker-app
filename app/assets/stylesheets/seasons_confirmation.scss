@@ -1,0 +1,6 @@
+.confirmation__buttons-row {
+  display: flex;
+  & > a {
+    margin-right: 5px;
+  }
+}

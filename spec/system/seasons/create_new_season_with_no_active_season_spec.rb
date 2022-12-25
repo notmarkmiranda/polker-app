@@ -10,11 +10,24 @@ RSpec.describe "Create new season with no active season" do
     expect(Season.count).to eq(0)
   end
 
-  it "Creates new season and redirects to season#show" do
-    visit league_path(league)
+  describe "with no other existing seasons" do
+    it "creates new season and redirects to league#show" do
+      visit league_path(league)
 
-    click_button "New Season"
+      click_button "New Season"
 
-    expect(page).to have_content("Seasons: 1")
+      expect(page).to have_content("Seasons: 1")
+    end
+  end
+
+  describe "with existing inactive season" do
+    before { create(:season, league: league, active: false) }
+    it "creates new season and redirects to league#show" do
+      visit league_path(league)
+
+      click_button "New Season"
+
+      expect(page).to have_content("Seasons: 1")
+    end
   end
 end

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       put "memberships/:id/reject", to: "memberships#reject", as: "membership_reject"
 
       resources :seasons, only: [:create]
+
+      get "/season/confirmation", as: "seasons_confirmation", to: "seasons#confirmation"
+      post "/season/confirm", as: "seasons_confirm", to: "seasons#confirm"
     end
   end
 
