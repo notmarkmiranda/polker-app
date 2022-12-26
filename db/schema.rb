@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_20_211224) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_26_020819) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "games", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "season_id", null: false
+    t.datetime "date_time"
+    t.integer "estimated_player_count"
+    t.string "location"
+    t.boolean "completed", default: false
+    t.integer "buy_in"
+    t.boolean "add_ons", default: true
+    t.jsonb "payout_schedule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["season_id"], name: "index_games_on_season_id"
+  end
 
   create_table "leagues", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_211224) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "games", "seasons"
   add_foreign_key "leagues", "users"
   add_foreign_key "memberships", "leagues"
   add_foreign_key "memberships", "users"
