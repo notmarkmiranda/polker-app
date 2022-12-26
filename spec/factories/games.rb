@@ -7,6 +7,6 @@ FactoryBot.define do
     completed { false }
     buy_in { 15 }
     add_ons { false }
-    payout_schedule { { "1" => 50, "2" => 30, "3" => 20 } }
+    payout_schedule { {"1" => 50, "2" => 30, "3" => 20} }
   end
 end
