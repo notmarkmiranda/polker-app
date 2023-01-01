@@ -14,4 +14,8 @@ class League < ApplicationRecord
   def admin_memberships
     memberships.admin
   end
+
+  def active_season
+    seasons.active.first
+  end
 end

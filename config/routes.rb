@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :seasons, only: [:show] do
+    scope module: :seasons do
+      resources :games, only: [:show, :new, :create]
+    end
+  end
+
   resources :memberships, only: [:index]
   put "membership/:id/approve", to: "memberships#approve", as: "membership_approve"
   delete "membership/:id/archive", to: "memberships#archive", as: "membership_archive"
