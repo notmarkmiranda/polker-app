@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root "pages#index"
 
   resources :leagues, only: [:show, :new, :create] do
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
   get "sign-in", to: "sessions#new", as: "sign_in"
   post "sign-in", to: "sessions#create"
   delete "sign-out", to: "sessions#destroy"
+
   get "dashboard", to: "users#show", as: "dashboard"
 end
