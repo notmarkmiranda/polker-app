@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="six columns offset-by-three">
+    <%= form_with model: @game, url: [@season, @game] do |f| %>
+      <%= f.label :date_time, "Date & Time" %>
+      <%= f.datetime_select :date_time %>
+      <%= f.label :estimated_player_count, "Estimated Player Count" %>
+      <%= f.number_field :estimated_player_count, class: "u-full-width" %>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "u-full-width" %>
+      <%= f.label :buy_in, "Buy In" %>
+      <%= f.number_field :buy_in, class: "u-full-width" %>
+      <%= f.label :add_ons do %>
+        <%= f.check_box :add_ons %>
+        Allow Rebuys?
+      <% end%>
+      <%= f.submit "Schedule Game", class: "button-primary" %>
+    <% end %>
+  </div>
+</div>
