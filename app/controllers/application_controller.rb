@@ -11,6 +11,21 @@ class ApplicationController < ActionController::Base
     redirect_to sign_in_path unless current_user
   end
 
+  def current_admin_user
+    puts "BBBB"
+    current_user if current_user&.superadmin?
+  end
+
+  def authenticate_admin_user!
+    if current_admin_user
+      puts "LOGIN"
+      true
+    else
+      puts "NO USER"
+      redirect_to sign_in_path
+    end
+  end
+
   private
 
   def current_user
