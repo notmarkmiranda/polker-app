@@ -27,8 +27,14 @@ RSpec.shared_examples "schedule game" do
     fill_in "Buy In", with: "250"
     check "Allow Rebuys?"
 
-    # TODO: Mark Miranda -> Need to add ability to set payout schedule
+    within "#payout_schedule" do
+      find("option[value='4']").click
+    end
 
+    fill_in "game[payout_schedule][1]", with: "50"
+    fill_in "game[payout_schedule][2]", with: "30"
+    fill_in "game[payout_schedule][3]", with: "15"
+    fill_in "game[payout_schedule][4]", with: "5"
     click_button "Schedule Game"
 
     expect(page).to have_content("May 09, 2023")

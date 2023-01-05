@@ -25,7 +25,16 @@ class Seasons::GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:season_id, :date_time, :estimated_player_count, :location, :compeleted, :buy_in, :add_ons, :payout_schedule)
+    params.require(:game).permit(
+      :season_id,
+      :date_time,
+      :estimated_player_count,
+      :location,
+      :compeleted,
+      :buy_in,
+      :add_ons,
+      payout_schedule: {}
+    )
   end
 
   def load_season
