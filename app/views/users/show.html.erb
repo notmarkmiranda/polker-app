@@ -1,6 +1,9 @@
 <div class="row">
   <div class="twelve columns dashboard__control-buttons">
-    <%= link_to "Create new league", new_league_path, class: "button button-primary" %>
+    <%= link_to "Create new league", new_league_path, class: "button button-primary dashboard-button" %>
+    <% if current_user.superadmin? %>
+      <%= link_to "Active Admin Panel", admin_root_path, class: "button dashboard-button" %>
+    <% end %>
   </div>
 </div>
 <div class="row">

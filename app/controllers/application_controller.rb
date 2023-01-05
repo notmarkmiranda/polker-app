@@ -18,8 +18,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     if current_admin_user
-      puts "LOGIN"
+      puts "ADMIN USER"
       true
+    elsif current_user
+      puts "NO ADMIN USER"
+      redirect_to dashboard_path
     else
       puts "NO USER"
       redirect_to sign_in_path
