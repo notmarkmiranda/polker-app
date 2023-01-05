@@ -9,11 +9,50 @@
       <%= f.text_field :location, class: "u-full-width" %>
       <%= f.label :buy_in, "Buy In" %>
       <%= f.number_field :buy_in, class: "u-full-width" %>
+      <div data-controller="game" class="payouts" id="payout_schedule">
+        <label for="game_payout_schedule">Payout Schedule in Percentages</label>
+        <select name="number_of_payout_spots" id="payouts" data-action="change->game#changeNumberOfPlaces" class="u-full-width">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <div data-game-target="percentage">
+          <label>1st place</label>
+          <input
+            type="number"
+            name="game[payout_schedule][1]"
+            class="u-full-width place-payout"
+            value="50"
+            data-action="game#calculatePlaceTotals"
+          />
+          <label>2nd place</label>
+          <input
+            type="number"
+            name="game[payout_schedule][2]"
+            class="u-full-width place-payout"
+            value="30"
+            data-action="game#calculatePlaceTotals"
+          />
+          <label>3rd place</label>
+          <input
+            type="number"
+            name="game[payout_schedule][3]"
+            class="u-full-width place-payout"
+            value="20"
+            data-action="game#calculatePlaceTotals"
+          />
+        </div>
+      </div>
       <%= f.label :add_ons do %>
         <%= f.check_box :add_ons %>
         Allow Rebuys?
       <% end%>
-      <%= f.submit "Schedule Game", class: "button-primary" %>
+      <%= f.submit "Schedule Game", class: "button-primary", id: "schedule-game-button" %>
     <% end %>
   </div>
 </div>
