@@ -7,5 +7,6 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of :email }
     it { should have_many :leagues }
     it { should have_many :memberships }
+    it { should have_many :players }
   end
 end
