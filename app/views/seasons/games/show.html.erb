@@ -1,2 +1,109 @@
-<%= @game.formatted_date %>
-<%= @game.formatted_time %>
+<div class="row">
+  <div class="twelve columns">
+    <%= link_to league_path(@game.league), class: "button button-primary" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+      Back to League
+    <% end %>
+    <%= link_to season_path(@game.season), class: "button" do %>
+      <i class="fa-solid fa-list"></i>
+      View Season
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="twelve columns">
+    <h2><%= @game.league_name %></h2>
+    <small><%= @game.location %></small>
+    <hr class="season-game-show__hr">
+    <h4 class="season-game-show__overview">Game Overview</h4>
+    <small>Game #<%= @game.number %> of <%= link_to "Season ##{@game.season.number}", season_path(@game.season) %></small>
+    <hr class="season-game-show__hr">
+  </div>
+</div>
+<div class="row">
+  <div class="six columns season-game-show__overview">
+    <p class="season-game-show__info"><b>Date:</b> <%= @game.formatted_date %></p>
+    <p class="season-game-show__info"><b>Time:</b> <%= @game.formatted_time %></p>
+    <p class="season-game-show__info"><b>Rebuys:</b> <%= @game.add_on_text %></p>
+  </div>
+  <div class="six columns season-game-show__overview">
+    <p class="season-game-show__info"><b>Buy in:</b> <%= @game.buy_in_amount %></p>
+    <p class="season-game-show__info"><b>Estimated # of Players:</b> <%= @game.estimated_player_count %></p>
+    <p class="season-game-show__info"><b>Pot Size:</b> <%= @game.pot_size %></p>
+    <div class="payouts">
+      <% if @game.payout_schedule %>
+        <p class="season-game-show__info"><b>Payout Schedule:</b></p>
+        <% @game.payout_schedule.each do |place, percent| %>
+          <div class="row">
+            <div class="two columns">
+              <p class="season-game-show__info">
+                <%= place.to_i.ordinalize %>
+              </p>
+            </div>
+            <div class="two columns">
+              <p class="season-game-show__info">
+                <%= number_to_percentage(percent, precision: 0)%>
+              </p>
+            </div>
+            <div class="eight columns">
+              <p class="season-game-show__info">
+                <%= @game.payout_amount(place) %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr class="season-game-show__hr">
+<div class="row">
+  <div class="twelve columns">
+    <h4>Game Standings</h4>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <!-- TODO: Mark Miranda -> Actions should be hidden to league admins / owner only -->
+          <th>Actions</th>
+          <th>#</th>
+          <th>Additional</th>
+          <th>Player</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Something</td>
+          <td>1</td>
+          <td>$0</td>
+          <td>Marshall Houston</td>
+        </tr>
+        <tr>
+          <td>Something</td>
+          <td>2</td>
+          <td>$0</td>
+          <td>Mark Miranda</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="six columns">
+    <% unless @game.completed? %>
+      <h4>Add player to game</h4>
+      <select class="u-full-width">
+        <option>Caleb Coats<option>
+        <option>Michael Cassano<option>
+      </select>
+      <p class="season-game-show__info">Rebuy or Add-on</p>
+      <input type="number" class="u-full-width season-game-show__add-on" />
+      <%= link_to "Add New Player", "#", class: "season-game-show__add-new-player" %>
+    <% end %>
+  </div>
+  <div class="six columns">
+    <h4>Admin Controls</h4>
+    <%= button_to "Delete Game", "#", class: "button u-full-width", form_class: "season-game-show__admin-button" %>
+    <%= button_to "Edit Game", "#", class: "button u-full-width", form_class: "season-game-show__admin-button" %>
+    <%= button_to "Complete Game", "#", class: "button u-full-width", form_class: "season-game-show__admin-button" %>
+  </div>
+</div>

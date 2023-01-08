@@ -2,6 +2,7 @@ class League < ApplicationRecord
   belongs_to :user
   has_many :memberships
   has_many :seasons
+  has_many :games, through: :seasons
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}
 
