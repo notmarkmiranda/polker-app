@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_223325) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_153022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -32,10 +32,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_223325) do
   create_table "games", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "season_id", null: false
     t.datetime "date_time"
-    t.integer "estimated_player_count"
+    t.integer "estimated_player_count", default: 0
     t.string "location"
     t.boolean "completed", default: false
-    t.integer "buy_in"
+    t.integer "buy_in", default: 0
     t.boolean "add_ons", default: true
     t.jsonb "payout_schedule"
     t.datetime "created_at", null: false

@@ -4,7 +4,8 @@ class LeaguesController < ApplicationController
   before_action :require_user
 
   def show
-    @league = League.includes(:seasons).find(params[:id])
+    @league = League.includes(seasons: :games).find(params[:id])
+    # authorize @league
   end
 
   def new

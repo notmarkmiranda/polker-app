@@ -4,7 +4,7 @@ class Seasons::GamesController < ApplicationController
   before_action :load_season
 
   def show
-    @game = Game.find(params[:id]).decorate
+    @game = Game.includes(season: :league).find(params[:id]).decorate
     # authorize @game
   end
 
