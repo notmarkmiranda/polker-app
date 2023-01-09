@@ -12,4 +12,10 @@ class Game < ApplicationRecord
   def number
     season.games.order(date_time: :asc).find_index(self) + 1
   end
+
+  def complete!
+    return if completed?
+
+    update(completed: true)
+  end
 end
