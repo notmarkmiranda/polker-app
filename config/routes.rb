@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :games, only: [:show, :new, :create] do
         member do
           post "/complete", to: "games#complete"
+          post "/uncomplete", to: "games#uncomplete"
         end
       end
     end

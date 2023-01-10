@@ -18,4 +18,10 @@ class Game < ApplicationRecord
 
     update(completed: true)
   end
+
+  def uncomplete!
+    return unless completed?
+
+    update(completed: false)
+  end
 end
