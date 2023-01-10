@@ -18,7 +18,12 @@ Rails.application.routes.draw do
 
   resources :seasons, only: [:show] do
     scope module: :seasons do
-      resources :games, only: [:show, :new, :create]
+      resources :games, only: [:show, :new, :create] do
+        member do
+          post "/complete", to: "games#complete"
+          post "/uncomplete", to: "games#uncomplete"
+        end
+      end
     end
   end
 

@@ -3,6 +3,10 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  def user_is_admin?(user, league)
+    league.user == user || league.memberships.pluck(:user_id).include?(user.id)
+  end
+
   def initialize(user, record)
     @user = user
     @record = record

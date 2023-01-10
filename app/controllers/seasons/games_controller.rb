@@ -22,6 +22,18 @@ class Seasons::GamesController < ApplicationController
     end
   end
 
+  def complete
+    @game = Game.includes(season: {league: :memberships}).find(params[:id])
+    authorize @game
+    @game.complete!
+  end
+
+  def uncomplete
+    @game = Game.includes(season: {league: :memberships}).find(params[:id])
+    authorize @game
+    @game.uncomplete!
+  end
+
   private
 
   def game_params
